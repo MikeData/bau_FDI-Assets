@@ -7,7 +7,7 @@ Please note. We use github for versioning purposes only. If anyone wants the act
 
 2.) Unzip everything into its own folder.
 
-3.) You will need to copy all 4 source files required into this folder. The files required are: FDI inwards, FDI outwards, Assets, Liabilities.
+3.) You will need to copy all 4 source files required into this folder. The filenames might vary but are essentially: FDI inwards, FDI outwards, Assets, Liabilities.
 
 ## Explanation
 
