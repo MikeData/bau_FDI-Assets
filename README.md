@@ -1,4 +1,4 @@
-# FDI and Assets & Liabilities
+# FDI, Assets & Liabilities
 
 Please note. We use github for versioning purposes only. If anyone wants the actual data involved it will always be easily accessible via the ONS website (www.ons.gov.uk) and API service. tables.
 
