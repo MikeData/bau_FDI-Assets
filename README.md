@@ -23,7 +23,7 @@ To use it:
 
 1.) Right click and edit the "click to run" file.
 
-2.) Update both the file names and extensions (either .xls or .xlsx) at the top of the file as shown belowL
+2.) Update both the file names and extensions (either .xls or .xlsx) by changing whats between the relevant quotes as shown below:
 
 ![alt tag](/images/commands.png)
 
