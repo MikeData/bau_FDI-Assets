@@ -23,11 +23,11 @@ To use it:
 
 1.) Right click and edit the "click to run" file.
 
-2.) Update both the file names and extensions (either .xls or .xlsx) by changing whats between the relevant quotes as shown below:
+2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes):
 
 ![alt tag](/images/commands.png)
 
-Note the "DONT..." instruction. Anything below that never changes.
+Note: DO NOT use a filename with a space in it. If you get one just take the space out before running these scripts.
 
 3.) Save, exit and double click the file to extract and transform the data.
 
