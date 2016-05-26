@@ -23,7 +23,7 @@ To use it:
 
 1.) Right click and edit the "click to run" file.
 
-2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes):
+2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes). Ignore the line with a "Y" at the end, we'll deal with those next.
 
 ![alt tag](/images/batch_commands.png)
 
