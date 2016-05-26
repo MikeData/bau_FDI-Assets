@@ -31,11 +31,12 @@ Note: DO NOT use a filename with a space in it. If you get one just take the spa
 
 3.) Save, exit and double click the file to extract and transform the data.
 
-IMPORTANT - the do1="Y" etc row control which dataset we're extraacting, so:
 
-```do1="Y"`` means "we do want to extract dataset 1".
+## Optional Processing
 
-You can specifiy which datasets you dont want to extract by swithcing the Y entires to N (everything is Y by default).
+The line from the example code ```do1="Y"`` means "we do want to extract dataset 1". Switching the "Y" to "N" will tell it not to run the code for dataset 1. You can use these switches to alter which datasets are processed each run should you need to.
+
+
 
 
 
