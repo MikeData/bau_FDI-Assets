@@ -25,10 +25,18 @@ To use it:
 
 2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes):
 
-![alt tag](/images/commands.png)
+![alt tag](/images/batch_commands.png)
 
 Note: DO NOT use a filename with a space in it. If you get one just take the space out before running these scripts.
 
 3.) Save, exit and double click the file to extract and transform the data.
+
+IMPORTANT - the do1="Y" etc row control which dataset we're extraacting, so:
+
+```do1="Y"`` means "we do want to extract dataset 1".
+
+You can specifiy which datasets you dont want to extract by swithcing the Y entires to N (everything is Y by default).
+
+
 
 
