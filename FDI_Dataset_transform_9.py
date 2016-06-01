@@ -36,10 +36,25 @@ obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(str.strip) + ' ' + obs
 obs_file['dimension_item_label_eng_3'] = obs_file['dim_item_id_3']
 
 # Manually fix mismatches from the locations closest-above scipr (i.e Europe in USA etc)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OTHER EUROPEAN', 'OTHER EUROPEAN COUNTRIES')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('NEAR & MIDDLE EAST', 'NEAR & MIDDLE EAST COUNTRIES')).astype(str)
-obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('AUSTRALASIA & OCEANIA ', 'AUSTRALASIA & OCEANIA')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OTHER ASIAN', 'OTHER ASIAN COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('AUSTRALASIA & ', 'AUSTRALASIA & OCEANIA')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('CENTRAL & EASTERN', 'CENTRAL & EASTERN EUROPE')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('WORLD TOTAL EUROPE', 'WORLD TOTAL CENTRAL & EASTERN EUROPE')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('COUNTRIES COUNTRIES', 'COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('ASIA COUNTRIES', 'ASIA OTHER ASIAN COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('EUROPE COUNTRIES', 'EUROPE OTHER EUROPEAN COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('COUNTRIES COUNTRIES', 'COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('EUROPE EUROPE', 'EUROPE')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OCEANIAAUSTRALIA', 'OCEANIA AUSTRALASIA')).astype(str)
+
+# TODO - rly, rly crap fix
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OCEANIA', 'AUSTRALASIA & OCEANIA')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('AUSTRALASIA & AUSTRALASIA & OCEANIA', 'AUSTRALASIA & OCEANIA')).astype(str)
+
 obs_file['dimension_item_label_eng_3'] = obs_file['dim_item_id_3']
+
 
 # Get rid of any no lookup errorsi
 obs_file = tf.remove_from_columns(obs_file, ['dim_item_id_3'], ['NoLookupError', 'of which '])

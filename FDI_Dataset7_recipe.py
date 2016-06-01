@@ -35,18 +35,18 @@ def per_tab(tab):
     unwanted = unwanted | tab.excel_ref('D').is_not_blank().filter('2013.0').fill(LEFT)
 
     # Get first and second part of location
-    find = tab.excel_ref('A').is_not_blank()
-    find = find - unwanted
+    find = tab.excel_ref('A').is_not_blank().is_not_whitespace()
+    #find = find - unwanted
     # find = find | find.shift(1, 1)
     find.dimension("Area", CLOSEST, ABOVE)
     
-    find = tab.excel_ref('B').is_not_blank()
-    find = find - unwanted
+    find = tab.excel_ref('B').is_not_blank().is_not_whitespace()
+    #find = find - unwanted
     find = find | tab.excel_ref('A1').fill(DOWN).is_bold().shift(RIGHT)
     find.dimension("Area 1", CLOSEST, ABOVE)    
     
-    find = tab.excel_ref('C').is_not_blank()
-    find = find - unwanted
+    find = tab.excel_ref('C').is_not_blank().is_not_whitespace()
+    #find = find - unwanted
     find = find | tab.excel_ref('A1').fill(DOWN).is_bold().shift(2, 0)
     find.dimension("Area 2", CLOSEST, ABOVE)
     

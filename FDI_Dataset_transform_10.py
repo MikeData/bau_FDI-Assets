@@ -36,7 +36,7 @@ obs_file['dim_item_id_1'] = obs_file['dim_item_id_1'].astype(str)
 obs_file['dim_item_id_2'] = obs_file['dim_item_id_2'].astype(str)
 obs_file['dim_item_id_1'] = obs_file['dim_item_id_1'] + " (" + obs_file['dim_item_id_2'] + ")"
 obs_file = tf.dismiss(obs_file, ['dim_id_2'])
- 
+
 # Sort out the index
 obs_file.fillna('', inplace = True)
 obs_file = obs_file.drop('index', 1)
@@ -47,6 +47,11 @@ obs_file.fillna('', inplace=True)
 # Clean the whitesapceout of dimension 1
 obs_file['dim_item_id_1'] = obs_file['dim_item_id_1'].map(str).map(lambda x: x.strip())
 obs_file['dimension_item_label_eng_1'] = obs_file['dim_item_id_1']
+
+# Clean out any spill over on to the final line
+headers = list(obs_file.columns.values)
+for header in headers[2:]:
+    obs_file[header][-1:] = ''
 
 # Sort the time
 obs_file = obs_file.sort(['dim_id_1', 'time_dim_item_id'], ascending=False)

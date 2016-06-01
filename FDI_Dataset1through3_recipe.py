@@ -12,8 +12,10 @@ def per_file(tabs):
     return [PARAMS(0)]
     
 def per_tab(tab):
+
+    # Get the 1st entry in column E    
+    anchor = tab.excel_ref("E1").fill(DOWN).is_not_blank().is_not_whitespace().by_index(2)
     
-    anchor = tab.excel_ref(PARAMS(3))
     obs = anchor.fill(DOWN).expand(RIGHT).is_not_blank()
     unwanted = tab.filter(contains_string ('Source: Office'))
     unwanted = unwanted | tab.filter(contains_string ('The largest change between methods is a shift '))
@@ -27,24 +29,22 @@ def per_tab(tab):
     first_header= anchor.shift(UP).expand(RIGHT).parent().is_not_blank()
     first_header | tab.filter('£ million').shift(DOWN)    
     first_header.dimension("Investment first", CLOSEST, LEFT) 
-    
-    unwanted = tab.excel_ref('D').is_not_blank().filter('2011.0').fill(LEFT)
-    unwanted = unwanted | tab.excel_ref('D').is_not_blank().filter('2012.0').fill(LEFT)
-    unwanted = unwanted | tab.excel_ref('D').is_not_blank().filter('2013.0').fill(LEFT)
+
+    unwanted = tab.excel_ref('D').is_not_blank().filter(contains_string('2014.0')).fill(LEFT)
 
     # Get first and second part of location
-    find = tab.excel_ref('A').is_not_blank()
-    find = find - unwanted
-    # find = find | find.shift(1, 1)
+    find = tab.excel_ref('A').is_not_blank().is_not_whitespace()
+    #find = find - unwanted
+    #find = find | find.shift(1, 1)
     find.dimension("Area", CLOSEST, ABOVE)
     
-    find = tab.excel_ref('B').is_not_blank()
-    find = find - unwanted
+    find = tab.excel_ref('B').is_not_blank().is_not_whitespace() - tab.excel_ref('B').filter(contains_string('of which'))
+    #find = find - unwanted
     find = find | tab.excel_ref('A1').fill(DOWN).is_bold().shift(RIGHT)
     find.dimension("Area 1", CLOSEST, ABOVE)    
     
-    find = tab.excel_ref('C').is_not_blank()
-    find = find - unwanted
+    find = tab.excel_ref('C').is_not_blank().is_not_whitespace()
+    #find = find - unwanted
     find = find | tab.excel_ref('A1').fill(DOWN).is_bold().shift(2, 0)
     find.dimension("Area 2", CLOSEST, ABOVE)
     

@@ -31,6 +31,13 @@ obs_file.fillna('', inplace = True)
 obs_file = obs_file.drop('index', 1)
 
 # Sort out type column, for Dataset 7
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].astype(str)
+obs_file['dim_item_id_3'][obs_file['dim_item_id_3'].map(lambda x: 'investment flows' in x)] = 'Direct investment flows analysed by area, main country and by industrial activity'
+obs_file['dim_item_id_3'][obs_file['dim_item_id_3'].map(lambda x: 'investment position' in x)] = 'Investment position analysed by area, main country and by industrial activity'
+obs_file['dim_item_id_3'][obs_file['dim_item_id_3'].map(lambda x: 'Earnings' in x)] = 'Earnings from direct investment analysed by area, main country and by industrial activity'
+
+
+"""
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('2.3: Foreign direct investment flows into the United Kingdom analysed by area & main country and by industrial activity of UK affiliates', 'Direct investment flows analysed by area, main country and by industrial activity')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('2.3 Foreign direct investment flows into the United Kingdom analysed by area & main country and by industrial activity of UK affiliates', 'Direct investment flows analysed by area, main country and by industrial activity')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('3.3: FDI international investment position in the United Kingdom analysed by area & main country and by industrial activity of UK affiliates', 'Investment position analysed by area, main country and by industrial activity')).astype(str)
@@ -43,6 +50,8 @@ obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('3
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('3.3: FDI international investment position abroad analysed by area & main country and by industrial activity of foreign affiliates', 'Investment position analysed by area, main country and by industrial activity')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('4.3 Earnings from foreign direct investment abroad analysed by area & main country and by industrial activity of overseas affiliates', 'Earnings from direct investment analysed by area, main country and by industrial activity')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('4.3: Earnings from foreign direct investment abroad analysed by area & main country and by industrial activity of overseas affiliates', 'Earnings from direct investment analysed by area, main country and by industrial activity')).astype(str)
+"""
+
 # Sort out type column for Dataset 8
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('Direct investment flows analysed by area, main country and by industrial activity, 2012 to 2013 (Asset/Liability)', 'Direct investment flows analysed by area, main country and by industrial activity')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('Investment position analysed by area, main country and by industrial activity1, 2012 to 2013 (Asset/Liability)', 'Investment position analysed by area, main country and by industrial activity')).astype(str)

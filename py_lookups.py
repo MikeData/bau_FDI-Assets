@@ -1,5 +1,4 @@
 # -*- coding: UTF-8 -*-
-# Automatically build with a click and drag excel vba lookup building tool (probably somewhere on my github)
  
 def cat_lookup(myframe, header):
     this_lookup = [

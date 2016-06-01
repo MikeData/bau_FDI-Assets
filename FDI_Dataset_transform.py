@@ -25,6 +25,7 @@ obs_file = obs_file.set_value(len(obs_file), 'observation', '*********')
 obs_file = obs_file.set_value(len(obs_file) -1, 'data_marking', count)
 obs_file['data_marking'] = obs_file['data_marking'].astype(str)
 obs_file['data_marking'] = obs_file['data_marking'].map(lambda x: x.replace('.0', ''))
+obs_file['data_marking'] = obs_file['data_marking'].map(lambda x: x.replace('nan', ''))
 
 # Sort out the index
 obs_file.fillna('', inplace = True)
@@ -44,6 +45,16 @@ obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('N
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OTHER ASIAN', 'OTHER ASIAN COUNTRIES')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('AUSTRALASIA & ', 'AUSTRALASIA & OCEANIA')).astype(str)
 obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('CENTRAL & EASTERN', 'CENTRAL & EASTERN EUROPE')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('WORLD TOTAL EUROPE', 'WORLD TOTAL CENTRAL & EASTERN EUROPE')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('COUNTRIES COUNTRIES', 'COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('ASIA COUNTRIES', 'ASIA OTHER ASIAN COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('EUROPE COUNTRIES', 'EUROPE OTHER EUROPEAN COUNTRIES')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('COUNTRIES COUNTRIES', 'COUNTRIES')).astype(str)
+
+# TODO - rly, rly crap fix
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('OCEANIA', 'AUSTRALASIA & OCEANIA')).astype(str)
+obs_file['dim_item_id_3'] = obs_file['dim_item_id_3'].map(lambda x: x.replace('AUSTRALASIA & AUSTRALASIA & OCEANIA', 'AUSTRALASIA & OCEANIA')).astype(str)
+
 obs_file['dimension_item_label_eng_3'] = obs_file['dim_item_id_3']
 
 # Get rid of any no lookup errorsi
