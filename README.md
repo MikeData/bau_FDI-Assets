@@ -41,7 +41,7 @@ Each dataset is created by runnng three seperate commands. These are clearly mar
 
 ## Note
 
-This was one of the first recipe suites we did and databaker has come a long way since this was written so - DONT - use this one as an example, it's rather clunky :)
+This was one of the first recipe suites we did and databaker has come a long way since this was written. I'll make a less clunky version if there's time/demand for it.
 
 
 
