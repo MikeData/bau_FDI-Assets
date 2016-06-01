@@ -23,7 +23,7 @@ To use it:
 
 1.) Right click and edit the "click to run" file.
 
-2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes). Ignore the line with a "Y" at the end, we'll deal with those next.
+2.) Update both the file names and extensions (either .xls or .xlsx) by changing the information shown in green below (you need to include the quotes).
 
 ![alt tag](/images/batch_commands.png)
 
@@ -34,7 +34,9 @@ Note: DO NOT use a filename with a space in it. If you get one just take the spa
 
 ## Optional Processing
 
-The line from the example code ```do1="Y"`` means "we do want to extract dataset 1". Switching the "Y" to "N" will tell it not to run the code for dataset 1. You can use these switches to alter which datasets are processed each run should you need to.
+Each dataset is created by runnng three seperate commands. These are clearly marked in the batch file so you can tailor what datasets the script is creating by removing the unwanted code (see example below for what you'd need to remove to not process 5).
+
+![alt tag](/images/single_dataset.png)
 
 
 
