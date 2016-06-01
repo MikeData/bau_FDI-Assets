@@ -29,7 +29,7 @@ To use it:
 
 Note: DO NOT use a filename with a space in it. If you get one just take the space out before running these scripts.
 
-3.) Save, exit and double click the file to extract and transform the data.
+3.) Save, exit and double click the batch file to extract and transform the data.
 
 
 ## Optional Processing
@@ -39,6 +39,9 @@ Each dataset is created by runnng three seperate commands. These are clearly mar
 ![alt tag](/images/single_dataset.png)
 
 
+## Note
+
+This was one of the first recipe suites we did and databaker has come a long way since this was written so - DONT - use this one as an example, it's rather clunky :)
 
 
 
